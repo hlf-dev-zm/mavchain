@@ -1,0 +1,52 @@
+{
+    "name": "basic-network",
+    "version": "1.0.0",
+    "client": {
+        "organization": "Provider1",
+        "connection": {
+            "timeout": {
+                "peer": {
+                    "endorser": "300"
+                },
+                "orderer": "300"
+            }
+        }
+    },
+    "channels": {
+        "mavchain-channel": {
+            "orderers": [
+                "orderer.mavchain.com"
+            ],
+            "peers": {
+                "peer0.provider1.mavchain.com": {}
+            }
+        }
+    },
+    "organizations": {
+        "Provider1": {
+            "mspid": "Provider1MSP",
+            "peers": [
+                "peer0.provider1.mavchain.com"
+            ],
+            "certificateAuthorities": [
+                "ca.mavchain.com"
+            ]
+        }
+    },
+    "orderers": {
+        "orderer.mavchain.com": {
+            "url": "grpc://localhost:7050"
+        }
+    },
+    "peers": {
+        "peer0.provider1.mavchain.com": {
+            "url": "grpc://localhost:7051"
+        }
+    },
+    "certificateAuthorities": {
+        "ca.mavchain.com": {
+            "url": "http://localhost:7054",
+            "caName": "ca.mavchain.com"
+        }
+    }
+}

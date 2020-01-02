@@ -1,0 +1,20 @@
+{
+    "connectionProvider1": "connection-provider1.json",
+    "connectionHP1": "connection-hp1.json",
+    "connectionHP2": "connection-hp2.json",
+    "connectionHP3": "connection-hp3.json",
+    "appAdmin": "admin",
+    "appAdminSecret": "adminpw",
+    "org1MSPID": "Provider1MSP",
+    "org2MSPID": "HP1MSP",
+    "org3MSPID": "HP2MSP",
+    "org4MSPID": "HP3MSP",
+    "caOrg1Name": "ca.provider1.mavchain.com",
+    "caOrg2Name": "ca.hp1.mavchain.com",
+    "caOrg3Name": "ca.hp2.mavchain.com",
+    "caOrg4Name": "ca.hp3.mavchain.com",
+    "userName": "user1",
+    "channelName": "mavchain-channel",
+    "contractName": "mavchain-cc",
+    "gatewayDiscovery": { "enabled": true, "asLocalhost": true }
+}
