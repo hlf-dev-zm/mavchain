@@ -116,7 +116,7 @@ services:
       - CORE_PEER_LISTENADDRESS=0.0.0.0:7051
       - CORE_PEER_CHAINCODEADDRESS=peer0.provider1.mavchain.com:7052
       - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7052
-      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.hp1.mavchain.com:8051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.provider1.mavchain.com:7051
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.provider1.mavchain.com:7051
       # # the following setting starts chaincode containers on the same
       # # bridge network as the peers
@@ -178,7 +178,7 @@ services:
       - CORE_PEER_LISTENADDRESS=0.0.0.0:8051
       - CORE_PEER_CHAINCODEADDRESS=peer0.hp1.mavchain.com:8052
       - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:8052
-      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.provider1.mavchain.com:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.hp1.mavchain.com:8051
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.hp1.mavchain.com:8051
       # # the following setting starts chaincode containers on the same
       # # bridge network as the peers
@@ -240,7 +240,7 @@ services:
       - CORE_PEER_LISTENADDRESS=0.0.0.0:9051
       - CORE_PEER_CHAINCODEADDRESS=peer0.hp2.mavchain.com:9052
       - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:9052
-      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.provider1.mavchain.com:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.hp2.mavchain.com:9051
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.hp2.mavchain.com:9051
       # # the following setting starts chaincode containers on the same
       # # bridge network as the peers
@@ -302,7 +302,7 @@ services:
       - CORE_PEER_LISTENADDRESS=0.0.0.0:10051
       - CORE_PEER_CHAINCODEADDRESS=peer0.hp3.mavchain.com:10052
       - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:10052
-      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.provider1.mavchain.com:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.hp3.mavchain.com:10051
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.hp3.mavchain.com:10051
       # # the following setting starts chaincode containers on the same
       # # bridge network as the peers

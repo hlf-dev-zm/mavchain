@@ -25,7 +25,8 @@ app.use(bodyParser.json());
 app.use('/', require("./routes"));
 
 // set up a static file server that points to the "client" directory
-app.use(express.static(path.join(__dirname, './client')));
+// app.use(express.static(path.join(__dirname, './client')));
+app.use(express.static(path.join(__dirname, './public')));
 
 // Save our port
 var port = process.env.PORT || 9000;

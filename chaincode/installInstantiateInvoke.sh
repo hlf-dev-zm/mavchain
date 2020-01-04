@@ -72,23 +72,23 @@ docker exec \
     -c '{"Args":[]}' \
     -P "AND('Provider1MSP.member','HP1MSP.member','HP2MSP.member','HP3MSP.member')"
 
-#echo "Waiting for instantiation request to be committed ..."
-# sleep 10
+echo "Waiting for instantiation request to be committed ..."
+sleep 10
 
-# echo "Submitting initLedger transaction to smart contract on ${CHANNEL}"
-# echo "The transaction is sent to the peer with the chaincode installed (peer0.provider1.mavchain.com) so that chaincode is built before receiving the following requests"
-# docker exec \
-#   -e CORE_PEER_LOCALMSPID=Provider1MSP \
-#   -e CORE_PEER_MSPCONFIGPATH=${ORG1_MSPCONFIGPATH} \
-#   cli \
-#   peer chaincode invoke \
-#     -o orderer.mavchain.com:7050 \
-#     -C $CHANNEL \
-#     -n $CHAINCODE \
-#     -c '{"function":"initLedger","Args":[]}' \
-#     --waitForEvent \
-#     --peerAddresses peer0.provider1.mavchain.com:7051 \
-#     --peerAddresses peer0.hp1.example.com:8051
-#     --peerAddresses peer0.hp2.example.com:9051
-#     --peerAddresses peer0.hp3.example.com:10051
+echo "Submitting initLedger transaction to smart contract on ${CHANNEL}"
+echo "The transaction is sent to all the peers with the chaincode installed so that chaincode is built before receiving the following requests"
+docker exec \
+  -e CORE_PEER_LOCALMSPID=Provider1MSP \
+  -e CORE_PEER_MSPCONFIGPATH=${ORG1_MSPCONFIGPATH} \
+  cli \
+  peer chaincode invoke \
+    -o orderer.mavchain.com:7050 \
+    -C $CHANNEL \
+    -n $CHAINCODE \
+    -c '{"function":"initLedger","Args":[]}' \
+    --waitForEvent \
+    --peerAddresses peer0.provider1.mavchain.com:7051 \
+    --peerAddresses peer0.hp1.example.com:8051
+    --peerAddresses peer0.hp2.example.com:9051
+    --peerAddresses peer0.hp3.example.com:10051
 set +x

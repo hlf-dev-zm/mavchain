@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>MAVCHAIN</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!-- CSS Style -->
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/party.css" rel="stylesheet">
+
+</head>
+
+<body onload="onLoad()">
+
+    <div class="display-loader">
+        <div class="loader">
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+    </div>
+
+    <div class="page-header bg-2 text-center">
+        <h1 class="heading">MAVCHAIN<h1>
+                <p class="pera">Hash Calculation & Verification</p>
+    </div>
+
+    <!-- Tab links -->
+    <div class="tab">
+        <button class="tablinks" id="provider1" onclick="openCity(event, 'Provider1')">Provider1</button>
+        <button class="tablinks" onclick="openCity(event, 'HP1')">HP1</button>
+        <button class="tablinks" onclick="openCity(event, 'HP2')">HP2</button>
+        <button class="tablinks" onclick="openCity(event, 'HP3')">HP3</button>
+    </div>
+
+    <!-- Tab content -->
+    <div id="Provider1" class="tabcontent">
+
+        <!------------------------>
+        <div class="container-fluid  no-border">
+
+
+            <div class="row .row-no-gutters">
+                <div class="col-sm-12 text-center">
+
+                    <h3><b>Provider #1</b></h3>
+                </div>
+            </div>
+
+            <hr>
+            
+            <div class="row .row-no-gutters">
+                <div class="col-sm-6 form-group">
+
+
+                    <label for="info1"> Information 1:</label>
+                    <input class="form-control" type="text" id="info1"></p>
+
+
+                    <label for="info2">Information 2:</label>
+                    <input class="form-control" type="text" id="info2"></p>
+
+
+                    <label for="info3">Information 3:</label>
+                    <input class="form-control" type="text" id="info3"></p>
+
+
+                    <p><input class='btn' type="button" value="Submit" onclick="generateHash()" /></p>
+                </div>
+                <div class="col-sm-6 form-group">
+
+
+                    <label for="hash_query">Hash: </label>
+                    <input type="text" class="form-control" id="hash_query"></p>
+
+
+                    <p><input class='btn' type="button" value="Query" onclick="getHashStatus()" /></p>
+
+
+                    <p><b>Query Result</b></p>
+                    <div id="query_result"></div>
+                    <!-- 
+                    <p style="font-size: 10px">HP1=><span style="color: green">YES</span></p>
+                    <p style="font-size: 10px">HP2=><span style="color: orange">NO</span></p>
+                    <p style="font-size: 10px">HP3=><span style="color: green">YES</span></p> -->
+
+                </div>
+            </div>
+            
+        </div>
+
+        <!------------------------>
+
+    </div>
+
+    <div id="HP1" class="tabcontent">
+
+        <!------------------------------->
+        <div class="container">
+
+            <center>
+                <H1>HP #1</H1>
+            </center>
+            <hr>
+
+            <div class="row">
+                <div class="col-sm-8">
+                    <p><b>VERIFY HASH</b></p>
+                    <input type="text" class="form-control" id="hash_verify_HP1"></p>
+                    <p class="pera3">Provide Hash value to verify from block chain Record</p>
+                    <span><input class='btn' type="button" value="Submit" onclick="verifyHash('HP1')" /></span>
+                    
+                <hr>
+                    <p><b>RESULT</b></p>
+                    <!-- <p style="font-size: 10px">HP1=><span style="color: green">YES</p> -->
+                        <div id="verify_hash_result_HP1"></div>
+                        <p><input class='btn' type="button" value="Submit to Chain" onclick="updateHashStatus('HP1')" /></p>
+                        <div id="update_status_HP1"></div>
+                </div>
+            </div>
+            <hr>
+
+            </div>
+        <!------------------------------->
+    </div>
+
+    <div id="HP2" class="tabcontent">
+        <!------------------------------->
+        <div class="container">
+
+            <center>
+                <H1>HP #2</H1>
+            </center>
+            <hr>
+
+            <div class="row">
+                <div class="col-sm-8">
+                    <p><b>VERIFY HASH</b></p>
+                    <input type="text" class="form-control" id="hash_verify_HP2"></p>
+                    <p class="pera3">Provide Hash value to verify from block chain Record</p>
+                    <span><input class='btn' type="button" value="Submit" onclick="verifyHash('HP2')" /></span>
+                    
+                <hr>
+                    <p><b>RESULT</b></p>
+                    <!-- <p style="font-size: 10px">HP1=><span style="color: green">YES</p> -->
+                        <div id="verify_hash_result_HP2"></div>
+                        <p><input class='btn' type="button" value="Submit to Chain" onclick="updateHashStatus('HP2')" /></p>
+                        <div id="update_status_HP2"></div>
+                </div>
+            </div>
+            <hr>
+
+            </div>
+        <!------------------------------->
+    </div>
+
+    <div id="HP3" class="tabcontent">
+        <!------------------------------->
+        <div class="container">
+
+            <center>
+                <H1>HP #3</H1>
+            </center>
+            <hr>
+
+            <div class="row">
+                <div class="col-sm-8">
+                    <p><b>VERIFY HASH</b></p>
+                    <input type="text" class="form-control" id="hash_verify_HP3"></p>
+                    <p class="pera3">Provide Hash value to verify from block chain Record</p>
+                    <span><input class='btn' type="button" value="Submit" onclick="verifyHash('HP3')" /></span>
+                    
+                <hr>
+                    <p><b>RESULT</b></p>
+                        <div id="verify_hash_result_HP3"></div>
+                        <p><input class='btn' type="button" value="Submit to Chain" onclick="updateHashStatus('HP3')" /></p>
+                        <div id="update_status_HP3"></div>
+                </div>
+            </div>
+            <hr>
+
+            </div>
+        <!------------------------------->
+    </div>
+
+    <div class="row .row-no-gutters" id="hashed_content">
+        <div class="col-sm-12 text-center">
+
+            <h3>HASHED VALUE</h3>
+            <div id="hash_value"></div>
+        </div>
+    </div>
+
+    <!---------script--------->
+    <script src="js/main.js"></script>
+    <script src="js/event.js"></script>
+
+</body>
+
+</html>

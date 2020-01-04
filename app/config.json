@@ -1,8 +1,5 @@
 {
-    "connectionProvider1": "connection-provider1.json",
-    "connectionHP1": "connection-hp1.json",
-    "connectionHP2": "connection-hp2.json",
-    "connectionHP3": "connection-hp3.json",
+    "connectionMavchain": "connection-mavchain.json",
     "appAdmin": "admin",
     "appAdminSecret": "adminpw",
     "org1MSPID": "Provider1MSP",

@@ -8,7 +8,7 @@ const path = require("path");
 const configPath = path.join(process.cwd(), "config.json");
 const configJSON = fs.readFileSync(configPath, "utf8");
 const config = JSON.parse(configJSON);
-var connectionProvider1 = config.connectionProvider1;
+var connectionMavchain = config.connectionMavchain;
 var connectionHP1 = config.connectionHP1;
 var connectionHP2 = config.connectionHP2;
 var connectionHP3 = config.connectionHP3;
@@ -19,7 +19,7 @@ var gatewayDiscovery = config.gatewayDiscovery;
 var channelName = config.channelName;
 var contractName = config.contractName;
 
-var ccpPath = path.join(process.cwd(),connectionProvider1);
+var ccpPath = path.join(process.cwd(),connectionMavchain);
 var ccpJSON = fs.readFileSync(ccpPath, "utf8");
 var ccpProvider1 = JSON.parse(ccpJSON);
 
@@ -137,8 +137,9 @@ exports.get_hash_status = async function(req, res, _next) {
     status = JSON.parse(status.toString())
     // Disconnect from the gateway.
     gateway.disconnect();
-    console.log("\nTransaction success")
-    res.send({status: status});
+    console.log("\nTransaction success - result ")
+    console.log(status)
+    res.send(status);
   } 
   catch (err) {
     //print and return error
@@ -181,7 +182,7 @@ exports.verify_hash = async function(req, res, _next) {
 
     console.log("\nSubmit verify hash transaction");
     var status = await contract.submitTransaction("verifyHash", hash);
-    status = JSON.parse(status.toString())
+    status = status.toString()
     // Disconnect from the gateway.
     gateway.disconnect();
     console.log("\nTransaction success")

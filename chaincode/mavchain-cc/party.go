@@ -38,6 +38,10 @@ func (p *PartyChaincode) Init(stub shim.ChaincodeStubInterface) pb.Response {
 	return shim.Success(nil)
 }
 
+func (p *PartyChaincode) initLedger(APIstub shim.ChaincodeStubInterface) pb.Response {
+	return shim.Success(nil)
+}
+
 // Invoke - Our entry point for Invocations
 // ========================================
 func (p *PartyChaincode) Invoke(stub shim.ChaincodeStubInterface) pb.Response {
@@ -45,7 +49,9 @@ func (p *PartyChaincode) Invoke(stub shim.ChaincodeStubInterface) pb.Response {
 	fmt.Printf("\nInvoke: invoke is running "+function+" with parameters %s\n", args)
 
 	// Handle different functions
-	if function == "generateHash" {
+	if function == "initLedger" {
+		return p.initLedger(stub)
+	} else if function == "generateHash" {
 		return p.generateHash(stub, args)
 	} else if function == "updateHashStatus" {
 		return p.updateHashStatus(stub, args)

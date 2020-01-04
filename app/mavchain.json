@@ -1,0 +1,46 @@
+{
+	"name": "mavchain-network",
+	"version": "1.0.0",
+	"license": "Apache-2.0",
+	"client": {
+		"tlsEnable": false,
+		"adminUser": "admin",
+		"adminPassword": "adminpw",
+		"enableAuthentication": false,
+		"organization": "Provider1",
+		"connection": {
+			"timeout": {
+				"peer": {
+					"endorser": "300"
+				},
+				"orderer": "300"
+			}
+		}
+	},
+	"channels": {
+		"mavchain-channel": {
+			"orderers": ["orderer.mavchain.com"],
+			"peers": {
+				"peer0.provider1.mavchain.com": {}
+			}
+		}
+	},
+	"organizations": {
+		"Provider1": {
+			"mspid": "Provider1MSP",
+			"peers": ["peer0.provider1.mavchain.com"],
+			"certificateAuthorities": ["ca.provider1.mavchain.com"]
+		}
+	},
+	"peers": {
+		"peer0.provider1.mavchain.com": {
+			"url": "grpc://localhost:7051"
+		}
+	},
+	"certificateAuthorities": {
+		"ca.provider1.mavchain.com": {
+			"url": "http://localhost:7054",
+			"caName": "ca.provider1.mavchain.com"
+		}
+	}
+}
