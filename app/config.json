@@ -1,5 +1,5 @@
 {
-    "connectionMavchain": "connection-mavchain.json",
+    "connectionMavchain": "mavchain.json",
     "appAdmin": "admin",
     "appAdminSecret": "adminpw",
     "org1MSPID": "Provider1MSP",
