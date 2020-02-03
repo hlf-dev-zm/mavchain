@@ -22,6 +22,6 @@ cd ../chaincode
 ./installInstantiateInvoke.sh
 
 cd ../app
-node enrollBootstrapId.js
+node enrollAdmin.js
 node registerEnrollUser.js
 node server.js
