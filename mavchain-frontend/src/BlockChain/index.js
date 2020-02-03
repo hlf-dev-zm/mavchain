@@ -18,6 +18,8 @@ import Loader from "react-loaders";
 import axios from "axios";
 import "react-alice-carousel/lib/alice-carousel.css";
 
+const BLOCKCHAIN_SERVER_IP = "http://34.68.112.134:9000";
+
 export default class BlockChain extends React.Component {
   constructor() {
     super();
@@ -105,7 +107,7 @@ export default class BlockChain extends React.Component {
           this.state.name3.length > 3
         ) {
           axios
-            .post(`http://34.68.112.134:9000/generateHash`, {
+            .post(`${BLOCKCHAIN_SERVER_IP}/generateHash`, {
               info1: this.state.name1,
               info2: this.state.name2,
               info3: this.state.name3
@@ -251,7 +253,7 @@ export default class BlockChain extends React.Component {
     } else {
       this.setState({ loader1: true, emptyresponse1: false });
       axios
-        .post(`http://34.68.112.134:9000/verifyHash`, {
+        .post(`${BLOCKCHAIN_SERVER_IP}/verifyHash`, {
           hash: this.state.verifyhp1
         })
         .then((response) => {
@@ -274,7 +276,7 @@ export default class BlockChain extends React.Component {
     } else {
       this.setState({ loader1: true, emptyresponse2: false });
       axios
-        .post(`http://34.68.112.134:9000/verifyHash`, {
+        .post(`${BLOCKCHAIN_SERVER_IP}/verifyHash`, {
           hash: this.state.verifyhp2
         })
         .then((response) => {
@@ -297,7 +299,7 @@ export default class BlockChain extends React.Component {
     } else {
       this.setState({ loader1: true, emptyresponse3: false });
       axios
-        .post(`http://34.68.112.134:9000/verifyHash`, {
+        .post(`${BLOCKCHAIN_SERVER_IP}/verifyHash`, {
           hash: this.state.verifyhp3
         })
         .then((response) => {
@@ -327,7 +329,7 @@ export default class BlockChain extends React.Component {
   Submittochain1 = (e) => {
     this.setState({ finalloader: true });
     axios
-      .post(`http://34.68.112.134:9000/updateHashStatus`, {
+      .post(`${BLOCKCHAIN_SERVER_IP}/updateHashStatus`, {
         hash: this.state.verifyhp1,
         party_id: this.state.partyId,
         status: this.state.Hp1Status
@@ -362,7 +364,7 @@ export default class BlockChain extends React.Component {
 
     console.log(this.state.verifyhp2, this.state.partyId, this.state.Hp2Status);
     axios
-      .post(`http://34.68.112.134:9000/updateHashStatus`, {
+      .post(`${BLOCKCHAIN_SERVER_IP}/updateHashStatus`, {
         hash: this.state.verifyhp2,
         party_id: this.state.partyId,
         status: this.state.Hp2Status
@@ -389,7 +391,7 @@ export default class BlockChain extends React.Component {
   Submittochain3 = (e) => {
     this.setState({ finalloader: true });
     axios
-      .post(`http://34.68.112.134:9000/updateHashStatus`, {
+      .post(`${BLOCKCHAIN_SERVER_IP}/updateHashStatus`, {
         hash: this.state.verifyhp3,
         party_id: this.state.partyId,
         status: this.state.Hp3Status
@@ -419,7 +421,7 @@ export default class BlockChain extends React.Component {
     } else {
       this.setState({ queryloader: true, Emptyquerymessage: "" });
       axios
-        .post(`http://34.68.112.134:9000/getHashStatus`, {
+        .post(`${BLOCKCHAIN_SERVER_IP}/getHashStatus`, {
           hash: this.state.onQuery
         })
         .then((response) => {
